@@ -1,0 +1,57 @@
+﻿@using NISA.DS.Web.Models.Rockets
+@model RocketViewModel
+
+@{
+    ViewData["Title"] = "Edit Rocket";
+}
+
+
+<h4>Edit Rocket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfSeats" class="control-label"></label>
+                <input asp-for="NumberOfSeats" class="form-control" />
+                <span asp-validation-for="NumberOfSeats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductionDate" class="control-label"></label>
+                <input asp-for="ProductionDate" class="form-control" />
+                <span asp-validation-for="ProductionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AstronautId" class="control-label"></label>
+                <select asp-for="AstronautId" class="form-control" asp-items="@Model.Astronauts"></select>
+                <span asp-validation-for="AstronautId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

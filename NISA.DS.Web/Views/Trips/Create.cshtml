@@ -1,0 +1,64 @@
+﻿@using NISA.DS.Web.Models.Trip
+@model TripViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Trip</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromPlanet" class="control-label"></label>
+                <input asp-for="FromPlanet" class="form-control" />
+                <span asp-validation-for="FromPlanet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToPlanet" class="control-label"></label>
+                <input asp-for="ToPlanet" class="form-control" />
+                <span asp-validation-for="ToPlanet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PickUpDateTime" class="control-label"></label>
+                <input asp-for="PickUpDateTime" class="form-control" />
+                <span asp-validation-for="PickUpDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RocketId" class="control-label"></label>
+                <select asp-for="RocketId" class ="form-control" asp-items="@Model.Rockets"></select>
+                <span asp-validation-for="RocketId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripTypeId" class="control-label"></label>
+                <select asp-for="TripTypeId" class ="form-control" asp-items="@Model.TripTypes"></select>
+                <span asp-validation-for="TripTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassengerIds" class="control-label"></label>
+                <select asp-for="PassengerIds" class ="form-control" asp-items="@Model.PassengersMultiSelect"></select>
+                <span asp-validation-for="PassengerIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
