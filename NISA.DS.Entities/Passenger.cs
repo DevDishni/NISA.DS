@@ -20,7 +20,7 @@ namespace NISA.DS.Entities
         public string LastName { get; set; }
         public DateTime? DOB { get; set; }
         public Gender Gender { get; set; }
-        public int IdentificationNumber { get; set; }
+        public int NNS { get; set; }
         public string PhoneNumber { get; set; }
 
         public List<Trip> Trips { get; set; }

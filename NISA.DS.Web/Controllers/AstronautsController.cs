@@ -27,7 +27,7 @@ namespace NISA.DS.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var astronauts  = await _context
+            var astronauts = await _context
                                          .Astronauts
                                          .ToListAsync();
 
@@ -67,13 +67,16 @@ namespace NISA.DS.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AstronautViewModel astronautVM)
         {
-            if (ModelState.IsValid)
+            if (astronautVM.DOB != null)
             {
-                var astronaut = _mapper.Map<Astronaut>(astronautVM);
+                if (ModelState.IsValid)
+                {
+                    var astronaut = _mapper.Map<Astronaut>(astronautVM);
 
-                _context.Add(astronaut);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    _context.Add(astronaut);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(astronautVM);
         }
@@ -108,30 +111,32 @@ namespace NISA.DS.Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (astronautVM.DOB != null)
             {
-                var astronaut = _mapper.Map<Astronaut>(astronautVM);
+                if (ModelState.IsValid)
+                {
+                    var astronaut = _mapper.Map<Astronaut>(astronautVM);
 
-                try
-                {
-                    _context.Update(astronaut);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AstronautExists(astronaut.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(astronaut);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!AstronautExists(astronaut.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
 
-            
             return View(astronautVM);
         }
 

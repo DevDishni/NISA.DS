@@ -6,4 +6,15 @@
 
 $(document).ready(function () {
     $('.table').DataTable();
+
+    $(".bootstrap-star-rating-readonly").rating({
+        displayOnly: true,
+        showCaption: false,
+        size: "sm"
+    });
+
+    $(".bootstrap-star-rating").rating({
+        size: "sm",
+        step: 1
+    });
 });

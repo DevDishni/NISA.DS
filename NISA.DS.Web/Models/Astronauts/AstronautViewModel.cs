@@ -16,12 +16,10 @@ namespace NISA.DS.Web.Models.Astronauts
         public string LastName { get; set; }
 
 
+        public int Rating { get; set; }
         public DateTime DOB { get; set; }
         public Gender Gender { get; set; }
-
-
-        [Display(Name = "Identification Number")]
-        public int IdentificationNumber { get; set; }
+        public int NNS { get; set; }
 
 
         [Display(Name = "Phone Number")]

@@ -16,9 +16,9 @@ namespace NISA.DS.Entities
         public DateTime? DOB { get; set; }
 
         public Gender Gender { get; set; }
-        public int IdentificationNumber { get; set; }
+        public int NNS { get; set; }
         public string PhoneNumber { get; set; }
-
+        public int Rating { get; set; }
 
         public List<Rocket> Rockets { get; set; }
 

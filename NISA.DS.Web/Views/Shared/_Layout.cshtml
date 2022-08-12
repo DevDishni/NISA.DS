@@ -6,8 +6,10 @@
     <title>@ViewData["Title"] - NISA.DS.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" type="text/css" href="~/lib/DataTables/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/lib/DataTables/datatables.min.css"  />
     <link rel="stylesheet" href="~/NISA.DS.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap-star-rating/css/star-rating.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-star-rating/themes/krajee-svg/theme.min.css" />
 </head>
 <body>
     <header>
@@ -34,11 +36,23 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Passengers" asp-action="Index">Passengers</a>
-                            <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Trips" asp-action="Index">Trips</a>
                         </li>
-                        </li>
                     </ul>
+
+                    <form class="d-flex" asp-controller="Search" asp-action="">
+                        <div class="input-group">
+                            <select name="searchType" class="form-select">
+                                <option value="astronaut">Astronaut</option>
+                                <option value="rocket">Rocket</option>
+                            </select>
+                            <input type="text" class="form-control" name="keyword" placeholder="Search...">
+                        </div>
+                    </form>
+
+
                     <partial name="_LoginPartial" />
                 </div>
             </div>
@@ -52,13 +66,15 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - NISA.DS.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="~/lib/DataTables/datatables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap-star-rating/js/star-rating.min.js"></script>
+    <script src="~/lib/bootstrap-star-rating/themes/krajee-svg/theme.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

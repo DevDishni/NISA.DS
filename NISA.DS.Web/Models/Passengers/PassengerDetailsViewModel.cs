@@ -13,10 +13,7 @@ namespace NISA.DS.Web.Models.Passengers
 
         public int Age { get; set; }
         public Gender Gender { get; set; }
-
-
-        [Display(Name = "Identification Number")]
-        public int IdentificationNumber { get; set; }
+        public int NNS { get; set; }
 
 
         [Display(Name = "Phone Number")]

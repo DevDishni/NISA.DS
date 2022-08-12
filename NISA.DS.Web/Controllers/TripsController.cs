@@ -82,17 +82,20 @@ namespace NISA.DS.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TripViewModel tripVM)
         {
-            if (ModelState.IsValid)
+            if (tripVM.PickUpDateTime != null)
             {
-                var trip = _mapper.Map<Trip>(tripVM);
 
-                await AddPassengersToTripAsync(tripVM, trip);
+                if (ModelState.IsValid)
+                {
+                    var trip = _mapper.Map<Trip>(tripVM);
 
-                _context.Add(trip);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    await AddPassengersToTripAsync(tripVM, trip);
+
+                    _context.Add(trip);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
-
 
             tripVM.Rockets = new SelectList(_context.Rockets, "Id", "RocketFullName", tripVM.RocketId);
             tripVM.TripTypes = new SelectList(_context.TripTypes, "Id", "Ticket", tripVM.TripTypeId);
@@ -138,33 +141,36 @@ namespace NISA.DS.Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (tripVM.PickUpDateTime != null)
             {
-                var trip = _mapper.Map<Trip>(tripVM);
-
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(trip);
-                    await _context.SaveChangesAsync();
+                    var trip = _mapper.Map<Trip>(tripVM);
 
-                    await UpdateTripPassengersAndSave(tripVM, trip.Id);
-
-
-                    _context.Update(trip);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TripExists(trip.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(trip);
+                        await _context.SaveChangesAsync();
+
+                        await UpdateTripPassengersAndSave(tripVM, trip.Id);
+
+
+                        _context.Update(trip);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TripExists(trip.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
             tripVM.Rockets = new SelectList(_context.Rockets, "Id", "RocketFullName", tripVM.RocketId);
             tripVM.TripTypes = new SelectList(_context.TripTypes, "Id", "Ticket", tripVM.TripTypeId);
@@ -172,7 +178,7 @@ namespace NISA.DS.Web.Controllers
             return View(tripVM);
         }
 
-        
+
 
 
         [HttpPost, ActionName("Delete")]

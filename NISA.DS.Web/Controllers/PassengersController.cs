@@ -72,13 +72,17 @@ namespace NISA.DS.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PassengerViewModel passengerVM)
         {
-            if (ModelState.IsValid)
+            if (passengerVM.DOB != null)
             {
-                var passenger = _mapper.Map<Passenger>(passengerVM);
 
-                _context.Add(passenger);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var passenger = _mapper.Map<Passenger>(passengerVM);
+
+                    _context.Add(passenger);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(passengerVM);
         }
@@ -113,27 +117,30 @@ namespace NISA.DS.Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (passengerVM.DOB != null)
             {
-                var passenger = _mapper.Map<Passenger>(passengerVM);
+                if (ModelState.IsValid)
+                {
+                    var passenger = _mapper.Map<Passenger>(passengerVM);
 
-                try
-                {
-                    _context.Update(passenger);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PassengerExists(passenger.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(passenger);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!PassengerExists(passenger.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
 
             return View(passengerVM);
