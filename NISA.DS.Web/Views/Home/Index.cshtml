@@ -3,6 +3,14 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form class="d-flex" asp-controller="Search" asp-action="Search">
+        <div class="input-group search-box">
+            <select name="searchType" class="form-select">
+                <option value="astronaut">Astronaut Name</option>
+                <option value="rocket">Rocket Brand/Model</option>
+                <option value="ticketType">Ticket Type</option>
+            </select>
+            <input type="text" class="form-control" name="keyword" placeholder="Search...">
+        </div>
+    </form>
 </div>

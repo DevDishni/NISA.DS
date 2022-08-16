@@ -3,28 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NISA.DS.Web</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>@ViewData["Title"] - NISA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" type="text/css" href="~/lib/DataTables/datatables.min.css"  />
-    <link rel="stylesheet" href="~/NISA.DS.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/lib/DataTables/datatables.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-star-rating/css/star-rating.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-star-rating/themes/krajee-svg/theme.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/NISA.ico">
+    <link href="http://fonts.cdnfonts.com/css/nasa" rel="stylesheet">
+    <link rel="stylesheet" href="~/NISA.DS.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NISA.DS.Web</a>
+                <a class="navbar-brand nisa-logo" asp-area="" asp-controller="Home" asp-action="Index">NISA</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Astronauts" asp-action="Index">Astronauts</a>
                         </li>
@@ -40,20 +40,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Trips" asp-action="Index">Trips</a>
                         </li>
+
                     </ul>
 
-                    <form class="d-flex" asp-controller="Search" asp-action="Search">
-                        <div class="input-group">
-                            <select name="searchType" class="form-select">
-                                <option value="astronaut">Astronaut</option>
-                                <option value="rocket">Rocket</option>
-                            </select>
-                            <input type="text" class="form-control" name="keyword" placeholder="Search...">
-                        </div>
-                    </form>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
 
-
-                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -66,7 +70,6 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

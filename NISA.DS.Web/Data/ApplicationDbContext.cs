@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using NISA.DS.Entities;
 using NISA.DS.Web.Models.Rockets;
 using NISA.DS.Web.Models.Astronauts;
+using NISA.DS.Web.Models.TripTypes;
 
 namespace NISA.DS.Web.Data
 {
@@ -20,5 +21,6 @@ namespace NISA.DS.Web.Data
         }
         public DbSet<NISA.DS.Web.Models.Rockets.RocketListViewModel>? RocketListViewModel { get; set; }
         public DbSet<NISA.DS.Web.Models.Astronauts.AstronautListViewModel>? AstronautListViewModel { get; set; }
+        public DbSet<NISA.DS.Web.Models.TripTypes.TripTypeViewModel>? TripTypeViewModel { get; set; }
     }
 }

@@ -22,4 +22,8 @@
     <ProjectReference Include="..\NISA.DS.Utils\NISA.DS.Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Fonts\" />
+  </ItemGroup>
+
 </Project>

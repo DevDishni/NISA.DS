@@ -4,6 +4,7 @@ using NISA.DS.Web.Models.Astronauts;
 using NISA.DS.Web.Models.Rockets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NISA.DS.Web.Models.TripTypes;
 
 namespace NISA.DS.Web.Controllers
 {
@@ -34,7 +35,13 @@ namespace NISA.DS.Web.Controllers
             else if (searchType == "rocket")
             {
                 var rocketVMs = await SearchByRocketName(keyword);
-                return View("RocketSearch", rocketVMs);
+                return View("SearchRocket", rocketVMs);
+            }
+
+            else if (searchType == "ticketType")
+            {
+                var tripTypeVMs = await SearchByTripType(keyword);
+                return View("SearchTripType", tripTypeVMs);
             }
 
             else
@@ -65,11 +72,24 @@ namespace NISA.DS.Web.Controllers
             var rockets = await _context
                                      .Rockets
                                      .Where(r => r.Brand.Contains(keyword) || r.Model.Contains(keyword))
+                                     .Include(r => r.Astronaut)
                                      .ToListAsync();
 
             var rocketVMs = _mapper.Map<List<RocketListViewModel>>(rockets);
 
             return rocketVMs;
+        }
+
+        private async Task<List<TripTypeViewModel>> SearchByTripType(string keyword)
+        {
+            var tripTypes = await _context
+                                       .TripTypes
+                                       .Where(t => t.Ticket.Contains(keyword))
+                                       .ToListAsync();
+
+            var tripTypeVMs = _mapper.Map<List<TripTypeViewModel>>(tripTypes);
+
+            return tripTypeVMs;
         }
 
         #endregion
