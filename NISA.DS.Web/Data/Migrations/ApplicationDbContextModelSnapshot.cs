@@ -258,7 +258,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Astronauts");
+                    b.ToTable("Astronauts", (string)null);
                 });
 
             modelBuilder.Entity("NISA.DS.Entities.Passenger", b =>
@@ -292,7 +292,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Passengers");
+                    b.ToTable("Passengers", (string)null);
                 });
 
             modelBuilder.Entity("NISA.DS.Entities.Rocket", b =>
@@ -328,7 +328,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasIndex("AstronautId");
 
-                    b.ToTable("Rockets");
+                    b.ToTable("Rockets", (string)null);
                 });
 
             modelBuilder.Entity("NISA.DS.Entities.Trip", b =>
@@ -365,7 +365,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasIndex("TripTypeId");
 
-                    b.ToTable("Trips");
+                    b.ToTable("Trips", (string)null);
                 });
 
             modelBuilder.Entity("NISA.DS.Entities.TripType", b =>
@@ -382,7 +382,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TripTypes");
+                    b.ToTable("TripTypes", (string)null);
                 });
 
             modelBuilder.Entity("PassengerTrip", b =>
@@ -397,7 +397,7 @@ namespace NISA.DS.Web.Data.Migrations
 
                     b.HasIndex("TripsId");
 
-                    b.ToTable("PassengerTrip");
+                    b.ToTable("PassengerTrip", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -4,10 +4,11 @@ using NISA.DS.Entities;
 using NISA.DS.Web.Models.Rockets;
 using NISA.DS.Web.Models.Astronauts;
 using NISA.DS.Web.Models.TripTypes;
+using Microsoft.AspNetCore.Identity;
 
 namespace NISA.DS.Web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
 
         public DbSet<Astronaut> Astronauts { get; set; }
@@ -19,8 +20,6 @@ namespace NISA.DS.Web.Data
             : base(options)
         {
         }
-        public DbSet<NISA.DS.Web.Models.Rockets.RocketListViewModel>? RocketListViewModel { get; set; }
-        public DbSet<NISA.DS.Web.Models.Astronauts.AstronautListViewModel>? AstronautListViewModel { get; set; }
-        public DbSet<NISA.DS.Web.Models.TripTypes.TripTypeViewModel>? TripTypeViewModel { get; set; }
+
     }
 }

@@ -2,7 +2,7 @@ html {
     font-size: 14px;
 }
 
-body{
+body {
 }
 
 .nisa-logo {
@@ -38,10 +38,35 @@ body {
     width: 50%;
 }
 
-.search-box select {
-    border-radius: 25px;
+    .search-box input {
+        border-radius: 25px;
+    }
+
+    .search-box select {
+        border-radius: 25px;
+    }
+
+.width-50px {
+    width: 50px;
 }
 
-.search-box input {
-    border-radius: 25px;
+.dropdown-menu {
+    width: 5.5rem;
+    min-width: 5rem;
+}
+
+.btn-logout {
+    text-align: center;
+    border-radius: 0;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .float-suii {
+        float: none !important;
+    }
 }
