@@ -1,5 +1,5 @@
 ﻿@using NISA.DS.Web.Models.Trip
-@model IEnumerable<TripListViewModel>
+@model TripPageViewModel
 
 @{
     ViewData["Title"] = "Trips";
@@ -7,32 +7,44 @@
 
 <h4>Trips</h4>
 
+
+
 <p>
     <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
 
 <hr />
 
+<form class="ma-w50" asp-action="Index">
+    <div class="input-group mb-5">
+        <label for="TripTypeId" class="input-group-text">Select Ticket Type</label>
+        <select class="form-control" asp-for="@Model.TripTypeId" asp-items="@Model.TripTypes" onchange="this.form.submit()">
+            <option value="NULL">All</option>
+        </select>
+    </div>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                Price ($)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FromPlanet)
+                From Planet
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ToPlanet)
+                To Planet
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TripTypeTicket)
+                Ticket
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var Trip in Model)
+        @foreach (var Trip in Model.Trips)
         {
             <tr>
                 <td>

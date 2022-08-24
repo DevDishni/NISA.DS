@@ -17,7 +17,7 @@ namespace NISA.DS.Web.Models.Trip
         public string ToPlanet { get; set; }
 
 
-        [Display(Name = "Ticket Type")]
+        [Display(Name = "Ticket")]
         public string TripTypeTicket { get; set; }
     }
 }

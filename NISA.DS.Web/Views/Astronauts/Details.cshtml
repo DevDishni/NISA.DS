@@ -42,11 +42,11 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NNS)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-2 rating-dis-name-for">
             @Html.DisplayNameFor(model => model.Rating)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rating)
+        <dd class = "col-sm-10 mb-0">
+            <input type="text" class="bootstrap-star-rating-readonly" value="@Model.Rating">
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PhoneNumber)

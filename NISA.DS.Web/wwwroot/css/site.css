@@ -2,11 +2,9 @@ html {
     font-size: 14px;
 }
 
-body {
-}
-
 .nisa-logo {
     font-family: 'Nasa', sans-serif;
+    padding-top: 7px;
 }
 
 
@@ -46,9 +44,6 @@ body {
         border-radius: 25px;
     }
 
-.width-50px {
-    width: 50px;
-}
 
 .dropdown-menu {
     width: 5.5rem;
@@ -65,8 +60,17 @@ body {
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) {
     .float-suii {
         float: none !important;
     }
+}
+
+.ma-w50 {
+    margin: auto;
+    width: 50%;
+}
+
+.rating-dis-name-for {
+    padding-top: 9px;
 }

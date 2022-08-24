@@ -30,16 +30,29 @@ namespace NISA.DS.Web.Controllers
 
         #region Actions
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(TripPageViewModel tripVM)
         {
-            var trips = await _context
-                                   .Trips
-                                   .Include(trip => trip.TripType)
-                                   .ToListAsync();
 
-            var tripVMs = _mapper.Map<List<TripListViewModel>>(trips);
+            var tripsQuery = _context
+                                  .Trips
+                                  .Include(t => t.TripType)
+                                  .AsQueryable();
 
-            return View(tripVMs);
+            if(tripVM.TripTypeId.HasValue)
+            {
+                tripsQuery = tripsQuery.Where(tq => tq.TripTypeId == tripVM.TripTypeId);
+            }
+
+            var trips = await tripsQuery.ToListAsync();
+
+            var tripPageVM = new TripPageViewModel();
+
+            tripPageVM.Trips = _mapper.Map<List<TripListViewModel>>(trips);
+
+            tripPageVM.TripTypes = new SelectList(_context.TripTypes, "Id", "Ticket", tripPageVM.TripTypeId);
+
+
+            return View(tripPageVM);
 
         }
 
