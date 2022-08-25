@@ -41,8 +41,14 @@
                     @Html.DisplayFor(modelItem => Rocket.AstronautFullName)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@Rocket.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@Rocket.Id">Details</a> |
+                    <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@Rocket.Id">
+                        <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
+                    </a>
+
+
+                    <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@Rocket.Id">
+                        <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
+                    </a>
                     <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@Rocket.Id">
                         Delete
                     </a>

@@ -30,8 +30,14 @@
                     @Html.DisplayFor(modelItem => TripType.Ticket)
                 </td>
                 <td>
-                    <a class="text-decoration-none text-primary" asp-action="Edit" asp-route-id="@TripType.Id">Edit</a> |
-                    <a class="text-decoration-none text-success" asp-action="Details" asp-route-id="@TripType.Id">Details</a> |
+                    <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@TripType.Id">
+                        <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
+                    </a>
+
+
+                    <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@TripType.Id">
+                        <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
+                    </a>
                     <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@TripType.Id">
                         Delete
                     </a>
