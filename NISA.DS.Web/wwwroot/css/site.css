@@ -21,6 +21,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    overflow-x: hidden;
 }
 
 .pointer {
@@ -73,4 +74,12 @@ body {
 
 .rating-dis-name-for {
     padding-top: 9px;
+}
+
+.section1-background-img {
+    background-image: src(../ForDsign/BackgroundImg..jpg);
+}
+
+.bc-dark-blue {
+    background-color: #104573;
 }
