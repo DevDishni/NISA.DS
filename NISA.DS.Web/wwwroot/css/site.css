@@ -76,10 +76,59 @@ body {
     padding-top: 9px;
 }
 
+.top-sections-text-container {
+    border-right: 5px solid #fff;
+}
+
+@media only screen and (max-width: 1199px) {
+    .top-sections-text-container {
+        border-right: none;
+    }
+}
 .section1-background-img {
     background-image: src(../ForDsign/BackgroundImg..jpg);
 }
 
-.bc-dark-blue {
-    background-color: #104573;
+
+
+.top-sections-text {
+    padding-top: 130px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1500px) {
+    .top-sections-text {
+        padding-top: 40px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Custom Reusable Classes*/
+
+.font-nisa {
+    font-family: 'Nasa', sans-serif;
+    letter-spacing: 3px;
+}
+
+.c-purple-bg {
+    background-color: #530a5a;
+}
+
+.c-light-blue-bg {
+    background-color: #45c6ed;
+}
+
+.c-border-bottom-5 {
+    border-bottom: 5px solid #fff;
 }
