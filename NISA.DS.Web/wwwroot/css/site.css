@@ -132,3 +132,7 @@ body {
 .c-border-bottom-5 {
     border-bottom: 5px solid #fff;
 }
+
+.c-text-gold {
+    color: #FFD700;
+}
