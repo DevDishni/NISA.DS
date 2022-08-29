@@ -1,4 +1,5 @@
-﻿using NISA.DS.Web.Models.Passengers;
+﻿using NISA.DS.Utils.Enums;
+using NISA.DS.Web.Models.Passengers;
 using NISA.DS.Web.Models.Rockets;
 using System.ComponentModel.DataAnnotations;
 
@@ -27,8 +28,10 @@ namespace NISA.DS.Web.Models.Trip
         public DateTime PickUpDateTime { get; set; }
 
 
-        [Display(Name = "Ticket Type")]
+        [Display(Name = "Ticket")]
         public string TripTypeTicket { get; set; }
+
+        public TicketType TicketType { get; set; }
         public RocketDetailsViewModel Rocket { get; set; }
 
 

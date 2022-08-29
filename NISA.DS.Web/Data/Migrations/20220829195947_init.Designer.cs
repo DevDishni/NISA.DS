@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NISA.DS.Web.Data;
 
@@ -11,9 +12,10 @@ using NISA.DS.Web.Data;
 namespace NISA.DS.Web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220829195947_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -350,9 +352,6 @@ namespace NISA.DS.Web.Data.Migrations
                         .HasColumnType("float");
 
                     b.Property<int>("RocketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketType")
                         .HasColumnType("int");
 
                     b.Property<string>("ToPlanet")

@@ -1,4 +1,5 @@
-﻿using NISA.DS.Web.Models.Rockets;
+﻿using NISA.DS.Utils.Enums;
+using NISA.DS.Web.Models.Rockets;
 using System.ComponentModel.DataAnnotations;
 
 namespace NISA.DS.Web.Models.Trip
@@ -19,5 +20,9 @@ namespace NISA.DS.Web.Models.Trip
 
         [Display(Name = "Ticket")]
         public string TripTypeTicket { get; set; }
+
+
+        [Display(Name = "Ticket")]
+        public TicketType TicketType { get; set; }
     }
 }

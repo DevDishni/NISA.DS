@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NISA.DS.Utils.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace NISA.DS.Entities
         public int RocketId { get; set; }
         public Rocket Rocket { get; set; }
 
+        public TicketType TicketType { get; set; }
 
         public int TripTypeId { get; set; }
         public TripType TripType { get; set; }
