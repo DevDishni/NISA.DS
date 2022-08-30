@@ -17,6 +17,7 @@ html {
 html {
     position: relative;
     min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -85,6 +86,7 @@ body {
         border-right: none;
     }
 }
+
 .section1-background-img {
     background-image: src(../ForDsign/BackgroundImg..jpg);
 }
@@ -103,7 +105,25 @@ body {
     }
 }
 
+.ticket-card {
+    height: 350px;
+    transition-duration: 0.3s;
+}
 
+    .ticket-card:hover {
+        transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+        box-shadow: 0px 0px 25px 15px rgba(000, 000, 000, 0.2);
+    }
+
+
+
+
+@media only screen and (max-width: 575px) {
+    .ticket-card {
+        width: 60%;
+        margin: auto;
+    }
+}
 
 
 

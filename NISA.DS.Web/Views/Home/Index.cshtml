@@ -1,4 +1,8 @@
-﻿@{
+﻿@using NISA.DS.Utils.Enums
+@using NISA.DS.Web.Models.Home
+@model HomePageViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <!-- <div class="text-center mt-5">
@@ -33,7 +37,7 @@
             </div>
         </div>
         <div class="col-xl-7 ps-0">
-            <img class="img-fluid w-100" src="~/ForDesign/FirstSectionBanner.png">
+            <img class="img-fluid" src="~/ForDesign/FirstSectionBanner.png">
         </div>
     </div>
 
@@ -53,54 +57,42 @@
             </div>
         </div>
         <div class="col-xl-7 ps-0">
-            <img class="img-fluid w-100" src="~/ForDesign/SecondSectionBanner.png">
+            <img class="img-fluid" src="~/ForDesign/SecondSectionBanner.png">
         </div>
     </div>
 </div>
 
-<h3 class="text-center my-5">BEST TICKETS</h3>
+<h3 class="text-center mt-5">BEST TICKETS</h3>
 
 <div class="container">
-    <div class="row text-light">
+    <div class="row">
+        @foreach (var trip in Model.Trips)
+        {
 
-        <div class="col-lg-4 p-3">
-            <div class="bg-dark w-100 h-100 rounded-3 p-1">
-                <h2 class="fw-bold float-start c-text-gold">
-                    VIP  
-                    <i class="fa-solid fa-ticket"></i>
-                </h2>
-                <h2 class="float-end fst-italic">
-                    <span class="c-text-gold">Gold</span>
-                    Ticket
-                </h2>
+            <div class="col-sm-4 mt-5 ticket-card">
+                <a asp-controller="Trips" asp-action="Details" asp-route-id="@trip.Id" class="text-decoration-none text-light">
+                    <div class="bg-dark rounded-3 px-3">
+                        <div class="clearfix">
+                            <h2 class="float-start c-text-gold">
+                                @trip.TicketType
+                                <i class="fa-solid fa-ticket"></i>
+                            </h2>
+                            <h2 class="float-end fst-italic">
+                                <span class="c-text-gold">Gold</span> Ticket
+                            </h2>
+                        </div>
+                        <div class="text-center mt-4">
+                            <img class="img-fluid" src="~/ForDesign/TicketGold.png">
+                        </div>
+                        <h1 class="text-center mt-3">
+                            ($)@trip.Price <span class="h4">50% OFF</span>
+                        </h1>
+                    </div>
+                </a>
             </div>
-        </div>
 
-        <div class="col-lg-4 p-3">
-            <div class="bg-dark w-100 h-100 rounded-3 p-1">
-                <h2 class="fw-bold float-start c-text-gold">
-                    VIP  
-                    <i class="fa-solid fa-ticket"></i>
-                </h2>
-                <h2 class="float-end fst-italic">
-                    <span class="c-text-gold">Gold</span>
-                    Ticket
-                </h2>
-            </div>
-        </div>
-
-        <div class="col-lg-4 p-3">
-            <div class="bg-dark w-100 h-100 rounded-3 p-1">
-                <h2 class="fw-bold float-start c-text-gold">
-                    VIP  
-                    <i class="fa-solid fa-ticket"></i>
-                </h2>
-                <h2 class="float-end fst-italic">
-                    <span class="c-text-gold">Gold</span>
-                    Ticket
-                </h2>
-            </div>
-        </div>
-
+        }
     </div>
 </div>
+
+

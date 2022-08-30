@@ -13,6 +13,7 @@ namespace NISA.DS.Web.Models.Rockets
 
 
         [Display(Name = "Rocket Full Name")]
+        [ValidateNever]
         public string RocketFullName { get; set; }
 
 
