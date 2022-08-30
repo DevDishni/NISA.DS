@@ -10,6 +10,6 @@ namespace NISA.DS.Utils.Enums
     {
         Regular,
         VIP,
-        BusnissMan
+        BusinessMan
     }
 }
