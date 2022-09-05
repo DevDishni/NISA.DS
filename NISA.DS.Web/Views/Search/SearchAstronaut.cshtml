@@ -4,45 +4,50 @@
     ViewData["Title"] = "Astronaut Search Results";
 }
 
-<h1>Astronaut Search Results</h1>
+<div class="container">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var Astronaut in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => Astronaut.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Astronaut.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Astronaut.Gender)
-            </td>
-            <td>
-                <input type="text" class="bootstrap-star-rating-readonly" value="@Astronaut.Rating">
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@Astronaut.Id">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Astronaut Search Results</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Astronaut in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Astronaut.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Astronaut.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Astronaut.Gender)
+                    </td>
+                    <td>
+                        <input type="text" class="bootstrap-star-rating-readonly" value="@Astronaut.Rating">
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@Astronaut.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

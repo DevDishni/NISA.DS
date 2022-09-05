@@ -21,7 +21,6 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
     overflow-x: hidden;
 }
 
@@ -107,15 +106,7 @@ body {
 
 .ticket-card {
     height: 350px;
-    transition-duration: 0.3s;
 }
-
-    .ticket-card:hover {
-        transform: matrix(1.05, 0, 0, 1.05, 0, 0);
-        box-shadow: 0px 0px 25px 15px rgba(000, 000, 000, 0.2);
-    }
-
-
 
 
 @media only screen and (max-width: 575px) {
@@ -125,6 +116,17 @@ body {
     }
 }
 
+.slick-prev:before {
+    color: #3670fa;
+}
+
+.slick-next:before {
+    color: #3670fa;
+}
+
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: 1;
+}
 
 
 
@@ -155,4 +157,8 @@ body {
 
 .c-text-gold {
     color: #FFD700;
+}
+
+.c-light-yel-bg {
+    background-color: #ffe9de;
 }

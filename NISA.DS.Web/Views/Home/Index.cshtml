@@ -5,20 +5,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<!-- <div class="text-center mt-5">
-    <form class="d-flex" asp-controller="Search" asp-action="Search">
-        <div class="input-group search-box">
-            <select name="searchType" class="form-select">
-                <option value="astronaut">Astronaut Name</option>
-                <option value="rocket">Rocket Brand/Model</option>
-                <option value="ticketType">Ticket Type</option>
-            </select>
-            <input type="text" class="form-control" name="keyword" placeholder="Search...">
-        </div>
-    </form>
-</div> -->
-
-
 
 <div>
     <div class="row c-border-bottom-5">
@@ -62,37 +48,101 @@
     </div>
 </div>
 
+
+<div class="c-light-yel-bg">
+    <div class="text-center">
+
+        <h2 class="pt-5 text-info">
+            Search By Our Astronauts or Rockets
+        </h2>
+
+        <form class="d-flex p-5" asp-controller="Search" asp-action="Search">
+            <div class="input-group search-box">
+                <select name="searchType" class="form-select">
+                    <option value="astronaut">Astronaut Name</option>
+                    <option value="rocket">Rocket Brand/Model</option>
+                    <option value="ticketType">Ticket Type</option>
+                </select>
+                <input type="text" class="form-control" name="keyword" placeholder="Search...">
+            </div>
+        </form>
+    </div>
+</div>
+
 <h3 class="text-center mt-5">BEST TICKETS</h3>
 
 <div class="container">
     <div class="row">
-        @foreach (var trip in Model.Trips)
-        {
+        <div class="ticket-card-container">
 
-            <div class="col-sm-4 mt-5 ticket-card">
-                <a asp-controller="Trips" asp-action="Details" asp-route-id="@trip.Id" class="text-decoration-none text-light">
-                    <div class="bg-dark rounded-3 px-3">
-                        <div class="clearfix">
-                            <h2 class="float-start c-text-gold">
-                                @trip.TicketType
-                                <i class="fa-solid fa-ticket"></i>
-                            </h2>
-                            <h2 class="float-end fst-italic">
-                                <span class="c-text-gold">Gold</span> Ticket
-                            </h2>
-                        </div>
-                        <div class="text-center mt-4">
-                            <img class="img-fluid" src="~/ForDesign/TicketGold.png">
-                        </div>
-                        <h1 class="text-center mt-3">
-                            ($)@trip.Price <span class="h4">50% OFF</span>
-                        </h1>
+
+
+            @foreach (var trip in Model.Trips)
+            {
+                <div class="col-xl-3 mx-5">
+                    <div class="mt-5 ticket-card">
+                        <a asp-controller="Trips" asp-action="Details" asp-route-id="@trip.Id" class="text-decoration-none text-light">
+                            <div class="bg-dark rounded-3 px-3">
+                                <div class="clearfix">
+                                    <h2 class="float-start c-text-gold">
+                                        @trip.TicketType
+                                        <i class="fa-solid fa-ticket"></i>
+                                    </h2>
+                                    <h2 class="float-end fst-italic">
+                                        <span class="c-text-gold">Gold</span> Ticket
+                                    </h2>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <img class="img-fluid" src="~/ForDesign/TicketGold.png">
+                                </div>
+                                <h1 class="text-center mt-3">
+                                    ($)@trip.Price
+                                </h1>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
+                </div>
 
-        }
+            }
+        </div>
+
     </div>
 </div>
 
+<div class="mt-5">
+    <div class="row">
+        <div class="col-xl-4 c-purple-bg top-sections-text-container pb-5">
+            <div class="text-center mt-5 text-white top-sections-text">
+                <h1>
+                    About us
+                </h1>
+                <p class="px-5 fs-5">
+                    Learn More About NISA and What Dose NISA do and Why It's Better Than NASA
+                </p>
+                <button class="btn btn-light rounded-pill">
+                    Learn More
+                </button>
+            </div>
+        </div>
+        <div class="col-xl-8 ps-0">
+            <img class="img-fluid" src="~/ForDesign//Background (1).png">
+        </div>
+    </div>
+</div>
 
+<h2 class="text-center mt-5">
+    Our Rockets 
+</h2>
+
+
+<div class="mt-5">
+
+    <div class="row">
+        <div class="col-xl-6">
+            <img class="img-fluid w-100" src="~/imgs/carusel-first.jpg" />
+        </div>
+        <div class="col-xl-6">
+            <img class="img-fluid w-100" src="~/imgs/carusel-last.png" />
+        </div>
+    </div>
+</div>

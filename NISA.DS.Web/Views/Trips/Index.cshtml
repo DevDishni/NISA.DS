@@ -5,104 +5,106 @@
     ViewData["Title"] = "Trips";
 }
 
-<h4>Trips</h4>
+<div class="container">
+
+    <h4>Trips</h4>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+
+    <hr />
+
+    <form class="ma-w50" asp-action="Index">
+        <div class="input-group mb-5">
+            <label for="TripTypeId" class="input-group-text">Select Ticket Type</label>
+            <select class="form-control" asp-for="@Model.TripTypeId" asp-items="@Model.TripTypes" onchange="this.form.submit()">
+                <option value="NULL">All</option>
+            </select>
+        </div>
+    </form>
 
 
-
-<p>
-    <a class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
-
-<hr />
-
-<form class="ma-w50" asp-action="Index">
-    <div class="input-group mb-5">
-        <label for="TripTypeId" class="input-group-text">Select Ticket Type</label>
-        <select class="form-control" asp-for="@Model.TripTypeId" asp-items="@Model.TripTypes" onchange="this.form.submit()">
-            <option value="NULL">All</option>
-        </select>
-    </div>
-</form>
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Price ($)
-            </th>
-            <th>
-                From Planet
-            </th>
-            <th>
-                To Planet
-            </th>
-            <th>
-                Ticket
-            </th>
-            <th>
-                Ticket Type
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var Trip in Model.Trips)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => Trip.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Trip.FromPlanet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Trip.ToPlanet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Trip.TripTypeTicket)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Trip.TicketType)
-                </td>
-                <td>
-                    <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@Trip.Id">
-                        <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
-                    </a>
+                <th>
+                    Price ($)
+                </th>
+                <th>
+                    From Planet
+                </th>
+                <th>
+                    To Planet
+                </th>
+                <th>
+                    Ticket
+                </th>
+                <th>
+                    Ticket Type
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Trip in Model.Trips)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Trip.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Trip.FromPlanet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Trip.ToPlanet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Trip.TripTypeTicket)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Trip.TicketType)
+                    </td>
+                    <td>
+                        <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@Trip.Id">
+                            <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
+                        </a>
 
 
-                    <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@Trip.Id">
-                        <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
-                    </a>
-                    <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@Trip.Id">
-                        Delete
-                    </a>
+                        <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@Trip.Id">
+                            <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
+                        </a>
+                        <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@Trip.Id">
+                            Delete
+                        </a>
 
-                    <div class="modal fade" id="delete_@Trip.Id">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete Trip</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h5>Are you sure you want to delete this <span class="text-danger">Trip</span>?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <div class="modal fade" id="delete_@Trip.Id">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Trip</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>Are you sure you want to delete this <span class="text-danger">Trip</span>?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 
-                                    <form asp-action="Delete">
-                                        <input type="hidden" name="id" value="@Trip.Id" />
-                                        <input type="submit" value="Delete" class="btn btn-danger" />
-                                    </form>
+                                        <form asp-action="Delete">
+                                            <input type="hidden" name="id" value="@Trip.Id" />
+                                            <input type="submit" value="Delete" class="btn btn-danger" />
+                                        </form>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

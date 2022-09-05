@@ -7,7 +7,9 @@
     ViewData["Title"] = $"Edit {@Model.FirstName} {@Model.LastName}";
 }
 
-<h4>Edit @Model.FirstName @Model.LastName</h4>
+<div class="container">
+
+<h4>Edit @Model.FirstName @Model.LastName Passenger</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -52,6 +54,7 @@
     </div>
 </div>
 
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

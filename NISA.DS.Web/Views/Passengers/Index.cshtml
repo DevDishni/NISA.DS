@@ -5,80 +5,84 @@
     ViewData["Title"] = "Passengers";
 }
 
-<h4>Passengers</h4>
+<div class="container">
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
+    <h4>Passengers</h4>
 
-<hr />
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var Passenger in Model)
-        {
+    <hr />
+
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => Passenger.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Passenger.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Passenger.Gender)
-                </td>
-                <td>
-                    <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@Passenger.Id">
-                        <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
-                    </a>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Passenger in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Passenger.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Passenger.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Passenger.Gender)
+                    </td>
+                    <td>
+                        <a class="text-decoration-none me-2" asp-action="Edit" asp-route-id="@Passenger.Id">
+                            <i class="fa-solid fa-marker" title="Edit" data-bs-toggle="tooltip"></i>
+                        </a>
 
 
-                    <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@Passenger.Id">
-                        <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
-                    </a>
-                    <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@Passenger.Id">
-                        Delete
-                    </a>
+                        <a class="text-decoration-none text-info me-2" asp-action="Details" asp-route-id="@Passenger.Id">
+                            <i class="fa-solid fa-circle-info" title="Details" data-bs-toggle="tooltip"></i>
+                        </a>
+                        <a class="text-decoration-none text-danger pointer" data-bs-toggle="modal" data-bs-target="#delete_@Passenger.Id">
+                            Delete
+                        </a>
 
-                    <div class="modal fade" id="delete_@Passenger.Id">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete Passenger</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h5>Are you sure you want to delete <span class="text-danger">@Passenger.FullName</span>?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <div class="modal fade" id="delete_@Passenger.Id">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Passenger</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>Are you sure you want to delete <span class="text-danger">@Passenger.FullName</span>?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 
-                                    <form asp-action="Delete">
-                                        <input type="hidden" name="id" value="@Passenger.Id" />
-                                        <input type="submit" value="Delete" class="btn btn-danger" />
-                                    </form>
+                                        <form asp-action="Delete">
+                                            <input type="hidden" name="id" value="@Passenger.Id" />
+                                            <input type="submit" value="Delete" class="btn btn-danger" />
+                                        </form>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -6,91 +6,96 @@
     ViewData["Title"] = "Details";
 }
 
-<div>
-    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
-    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-</div>
+<div class="container">
 
-<hr />
 
-<div>
 
-    <h4>Astronaut Details</h4>
+    <div>
+        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    </div>
+
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NNS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NNS)
-        </dd>
-        <dt class = "col-sm-2 rating-dis-name-for">
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-        <dd class = "col-sm-10 mb-0">
-            <input type="text" class="bootstrap-star-rating-readonly" value="@Model.Rating">
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-    </dl>
-</div>
+
+    <div>
+
+        <h4>@Model.FullName Astronaut Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NNS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NNS)
+            </dd>
+            <dt class="col-sm-2 rating-dis-name-for">
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+            <dd class="col-sm-10 mb-0">
+                <input type="text" class="bootstrap-star-rating-readonly" value="@Model.Rating">
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+        </dl>
+    </div>
 
 
-<hr />
+    <hr />
 
-<h4>
-    Rocekts
-</h4>
+    <h4>
+        Rocekts
+    </h4>
 
-<br />
+    <br />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Brand
-            </th>
-            <th>
-                Model
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var rocket in Model.Rockets)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => rocket.Brand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => rocket.Model)
-                </td>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Model
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            @foreach (var rocket in Model.Rockets)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => rocket.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => rocket.Model)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 
+</div>

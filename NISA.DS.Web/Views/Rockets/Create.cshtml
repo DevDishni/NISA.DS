@@ -5,53 +5,56 @@
     ViewData["Title"] = "Create New Rocket";
 }
 
+<div class="container">
 
-<h4>Create New Rocket</h4>
+    <h4>Create New Rocket</h4>
 
-<hr />
+    <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Brand" class="control-label"></label>
-                <input asp-for="Brand" class="form-control" />
-                <span asp-validation-for="Brand" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberOfSeats" class="control-label"></label>
-                <input asp-for="NumberOfSeats" class="form-control" />
-                <span asp-validation-for="NumberOfSeats" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductionDate" class="control-label"></label>
-                <input asp-for="ProductionDate" class="form-control" />
-                <span asp-validation-for="ProductionDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AstronautId" class="control-label"></label>
-                <select asp-for="AstronautId" class ="form-control" asp-items="@Model.Astronauts"></select>
-            </div>
-            <div class="form-group">
-                <a class="btn btn-secondary" asp-action="Index">Cancel</a>
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label"></label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Brand" class="control-label"></label>
+                    <input asp-for="Brand" class="form-control" />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label"></label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfSeats" class="control-label"></label>
+                    <input asp-for="NumberOfSeats" class="form-control" />
+                    <span asp-validation-for="NumberOfSeats" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductionDate" class="control-label"></label>
+                    <input asp-for="ProductionDate" class="form-control" />
+                    <span asp-validation-for="ProductionDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AstronautId" class="control-label"></label>
+                    <select asp-for="AstronautId" class="form-control" asp-items="@Model.Astronauts"></select>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
